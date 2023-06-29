@@ -1,0 +1,13 @@
+{
+    "name": "mycodesgit/codelyirv2",
+    "description": "Lorem PHP Framework. A tool for a beginner or student",
+    "type": "project",
+    "require": {
+        "mpdf/mpdf": "^8.1"
+    },
+    "authors": [
+        {
+            "name": "Loreto G. Gabawa Jr."
+        }
+    ]
+}
