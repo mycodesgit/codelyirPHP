@@ -1,4 +1,10 @@
 <?php 
+	require_once __DIR__ . '/vendor/autoload.php';
+
+	// Enable Whoops error handler
+	$whoops = new Whoops\Run;
+	$whoops->pushHandler(new Whoops\Handler\PrettyPageHandler);
+	$whoops->register();
 	
 	error_reporting(E_ALL);
 	session_start();	

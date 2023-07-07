@@ -73,3 +73,12 @@ function validate_csrf_token() {
         exit();
     }
 }
+
+function includePhpFilesInDirectory($directory) {
+    $filePaths = glob($directory . '*.php');
+    foreach ($filePaths as $filePath) {
+        require_once $filePath;
+    }
+}
+$functionsDir = 'app/functions/';
+includePhpFilesInDirectory($functionsDir);

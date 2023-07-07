@@ -1,9 +1,11 @@
 {
     "name": "mycodesgit/codelyirv2",
-    "description": "Lorem PHP Framework. A tool for a beginner or student",
+    "description": "Lorem PHP Framework. A tool for a beginner or student. This is an Updated PHP Framework",
     "type": "project",
+    "license": "proprietary",
     "require": {
-        "mpdf/mpdf": "^8.1"
+        "mpdf/mpdf": "^8.1",
+        "filp/whoops": "^2.12"
     },
     "authors": [
         {

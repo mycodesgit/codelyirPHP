@@ -223,5 +223,4 @@ function parseSerializedData( $data ) {
 }
 
 /* ADD YOUR CUSTOM FUNCTIONS IN custom_functions.php */
-require 'custom_functions.php';
-require 'app/functions/userFunction.php';
+require 'route.php';
