@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $emp_gender = $_POST['emp_gender'];
         $usertype = $_POST['usertype'];
 
-        addUser($fname, $mname, $lname, $username, $password, $emp_gender, $usertype);
+        createUser($fname, $mname, $lname, $username, $password, $emp_gender, $usertype);
         // Redirect or perform additional actions as needed
     }
 

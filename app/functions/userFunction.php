@@ -15,8 +15,25 @@ if (!defined('ACCESS')) {
     die('DIRECT ACCESS NOT ALLOWED');
 }
 
+// Function to View 
+function viewUser() {
+    global $DB;
+
+    $query = $DB->prepare("SELECT * FROM users");
+
+    $query->execute();
+    $result = $query->get_result();
+
+    $users = array();
+    while ($user = $result->fetch_object()) {
+        $users[] = $user;
+    }
+
+    return $users;
+}
+
 // Function to add 
-function addUser($fname, $mname, $lname, $username, $password, $emp_gender, $usertype)
+function createUser($fname, $mname, $lname, $username, $password, $emp_gender, $usertype)
 {
     global $DB;
 
