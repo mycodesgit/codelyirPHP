@@ -12,5 +12,6 @@
         {
             "name": "Loreto G. Gabawa Jr."
         }
-    ]
+    ],
+    "minimum-stability": "stable"
 }
