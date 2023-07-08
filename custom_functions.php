@@ -82,3 +82,16 @@ function includePhpFilesInDirectory($directory) {
 }
 $functionsDir = 'app/functions/';
 includePhpFilesInDirectory($functionsDir);
+
+function enableErrorHandling()
+{
+    if (DEBUGGER) {
+        require_once __DIR__ . '/vendor/autoload.php';
+
+        // Enable Whoops error handler
+        $whoops = new Whoops\Run;
+        $whoops->pushHandler(new Whoops\Handler\PrettyPageHandler);
+        $whoops->register();
+    }
+}
+enableErrorHandling();

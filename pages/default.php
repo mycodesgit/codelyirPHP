@@ -2,6 +2,6 @@
 
 <?= element( 'header' ); ?>
 
-<?= element( 'view' )?>
+<?= element( 'view' ); ?>
 
 <?= element( 'footer' ); ?>
