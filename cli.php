@@ -20,7 +20,7 @@ $app->register('generate:function')
     ->setDescription('Generate a new function file')
     ->setCode(function (InputInterface $input, OutputInterface $output) {
         $functionName = $input->getArgument('name');
-        $functionContent = <<<'PHP'
+        $functionContent = <<<PHP
 <?php
 
 /*
@@ -38,20 +38,73 @@ if (!defined('ACCESS')) {
     die('DIRECT ACCESS NOT ALLOWED');
 }
  
-function view() {
-    global $DB;
+function view$functionName() {
+    global \$DB;
+
+    \$query = \$DB->prepare("SELECT * FROM table_name");
+    \$query->execute();
+    \$result = \$query->get_result();
+
+    if (\$result->num_rows > 0) {
+        \$items = array();
+        while (\$item = \$result->fetch_object()) {
+            \$items[] = \$item;
+        }
+        return \$items;
+    } else {
+        return array();
+    }
 }
 
-function create() {
-    global $DB;
+function create$functionName(\$item, \$created_at) {
+    global \$DB;
+
+    \$token = bin2hex(random_bytes(16));
+
+    \$sql_insert = "INSERT INTO table_name SET item=?, token=?, created_at=? ";
+
+    \$stmt_insert = \$DB->prepare(\$sql_insert);
+    \$stmt_insert->bind_param("sss", \$item, \$token, \$created_at);
+
+    if (\$stmt_insert->execute()) {
+        set_message("Added Successfully.", 'success');
+        return true;
+    } else {
+        set_message("<i class='fa fa-times'></i> Failed to add" . \$DB->error, 'danger');
+        return false;
+    }
 }
 
-function update() {
-    global $DB;
+function update$functionName(\$item, \$token) {
+    global \$DB;
+
+    \$sql_update = "UPDATE table_name SET item=? WHERE token=?";
+    \$stmt_update = \$DB->prepare(\$sql_update);
+    \$stmt_update->bind_param("ss", \$item, \$token);
+
+    if (\$stmt_update->execute()) {
+        set_message("<i class='fa fa-check'></i> Updated Successfully", 'success');
+        return true;
+    } else {
+        set_message("<i class='fa fa-times'></i> Failed to Update" . \$DB->error, 'danger');
+        return false;
+    }
 }
 
-function delete() {
-    global $DB;
+function delete$functionName(\$token) {
+    global \$DB;
+
+    \$sql_delete = "DELETE FROM table_name WHERE token=?";
+    \$stmt_delete = \$DB->prepare(\$sql_delete);
+    \$stmt_delete->bind_param("s", \$token);
+
+    if (\$stmt_delete->execute()) {
+        set_message("<i class='fa fa-check'></i> Deleted Successfully", 'success');
+        return true;
+    } else {
+        set_message("<i class='fa fa-times'></i> Failed to Delete" . \$DB->error, 'danger');
+        return false;
+    }
 }
 
 PHP;
@@ -79,7 +132,7 @@ $app->register('generate:action')
     ->setDescription('Generate a new action file')
     ->setCode(function (InputInterface $input, OutputInterface $output) {
         $actionName = $input->getArgument('name');
-        $actionContent = <<<'PHP'
+        $actionContent = <<<PHP
 <?php
 
 /*
@@ -97,26 +150,26 @@ if (!defined('ACCESS')) {
     die('DIRECT ACCESS NOT ALLOWED');
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if (\$_SERVER['REQUEST_METHOD'] === 'POST') {
 
     validate_csrf_token();
 
-    if (isset($_POST['btn-submit'])) {
+    if (isset(\$_POST['btn-submit'])) {
 
-        create();
+        create$actionName();
         // Redirect or perform additional actions as needed
     }
 
-    if (isset($_POST['btn-update'])) {
+    if (isset(\$_POST['btn-update'])) {
 
-        update();
+        update$actionName();
         // Redirect or perform additional actions as needed
     }
 
-    if (isset($_POST['btn-delete'])) {
-        //$token = $_GET['token'];
+    if (isset(\$_POST['btn-delete'])) {
+        \$token = \$_GET['token'];
 
-        delete();
+        delete$actionName();
         // Redirect or perform additional actions as needed
     }
 }
