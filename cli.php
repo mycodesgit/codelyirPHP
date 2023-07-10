@@ -176,7 +176,7 @@ if (\$_SERVER['REQUEST_METHOD'] === 'POST') {
 
 PHP;
 
-        $filePath = __DIR__ . '/actions/' . $actionName . '.php';
+        $filePath = __DIR__ . '/app/actions/' . $actionName . '.php';
 
         // Check if the file already exists
         if (file_exists($filePath)) {
