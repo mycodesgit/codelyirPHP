@@ -86,7 +86,7 @@ includePhpFilesInDirectory($functionsDir);
 function enableErrorHandling()
 {
     if (DEBUGGER) {
-        require_once __DIR__ . '/vendor/autoload.php';
+        require_once __DIR__ . '/../vendor/autoload.php';
 
         // Enable Whoops error handler
         $whoops = new Whoops\Run;
