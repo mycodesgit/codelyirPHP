@@ -24,6 +24,9 @@ if( !empty( $_POST[ 'username' ] ) && !empty( $_POST[ 'password' ] ) ) {
             $_SESSION[ AUTH_NAME ] = $user[ 'username' ];
             $_SESSION[ AUTH_TYPE ] = $user[ 'usertype' ];
             $_SESSION[ AUTH_TOKEN ] = $user[ 'token' ];
+
+            session_regenerate_id(true);
+            
             set_message( "Welcome back {$user[ 'fname' ]}!", 'success' );
             redirect();
         } else {        
