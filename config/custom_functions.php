@@ -95,3 +95,9 @@ function enableErrorHandling()
     }
 }
 enableErrorHandling();
+
+function checkLoggedIn() {
+    if (isset($_SESSION[AUTH_ID]) && !empty($_SESSION[AUTH_ID])) {
+        redirect();
+    }
+}
