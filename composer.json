@@ -5,7 +5,7 @@
     "license": "proprietary",
     "require": {
         "php": "<=8.2",
-        "mpdf/mpdf": "^8.1",
+        // "mpdf/mpdf": "^8.1",
         "filp/whoops": "^2.12",
         "symfony/console": "^5.0"
     },
