@@ -19,3 +19,5 @@ For Selected Item
 1. echo ($user->usertype == 'Administrator') ? 'selected="selected"' : ''
 For Menu access limitation
 1. if($_SESSION['usertype'] == 'Administrator') { } 
+MPDF
+1. "mpdf/mpdf": "^8.1",
