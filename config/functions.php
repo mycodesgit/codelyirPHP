@@ -23,8 +23,8 @@ function show_message() {
 	}
 }
 
-function redirect( $page = "", $q = "" ) {
-	header( "Location: " . SITE_URL . "/?page=$page" . ( !empty( $q ) ? '&' . $q : '' ) );
+function redirect( $page = PAGE_REDIRECT, $q = "" ) {
+	header( "Location: " . SITE_URL . "/$page" . ( !empty( $q ) ? '&' . $q : '' ) );
 	exit;
 }
 

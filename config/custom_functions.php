@@ -101,3 +101,9 @@ function checkLoggedIn() {
         redirect();
     }
 }
+
+function token_hash($length = 64) {
+    $randomBytes = random_bytes($length);
+    $tokenHash = password_hash($randomBytes, PASSWORD_BCRYPT);
+    return $tokenHash;
+}

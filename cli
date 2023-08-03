@@ -59,7 +59,7 @@ function view$functionName() {
 function create$functionName(\$item, \$created_at) {
     global \$DB;
 
-    \$token = bin2hex(random_bytes(16));
+    \$token = token_hash();
 
     \$sql_insert = "INSERT INTO table_name SET item=?, token=?, created_at=? ";
 
