@@ -56,7 +56,7 @@ function view$functionName() {
     }
 }
 
-function view$functionName() {
+function viewEdit$functionName() {
     global \$DB;
 
     \$token = \$_GET['token'];
