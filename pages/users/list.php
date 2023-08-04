@@ -17,7 +17,7 @@
     </thead>
     <tbody>
         <?php
-            $users = userView();
+            $users = viewUser();
             foreach ($users as $cnt => $user) {
         ?>
             <tr>
@@ -49,4 +49,3 @@
         $( "#alert" ).delay(2500).fadeOut(5000);
     }, );
 </script>
-

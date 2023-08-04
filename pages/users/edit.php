@@ -4,14 +4,10 @@
 
 <?php
     $token = $_GET['token'];
-    $stmt = $DB->prepare("SELECT * FROM users WHERE token = ?");
-    $stmt->bind_param("s", $token);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $user = $result->fetch_object();
+    $data = viewUserEdit($token);
 ?>
 
-<?php echo $user->fname ?>
+<?php echo $data->fname ?>
 
 <script>
     setTimeout(function() {

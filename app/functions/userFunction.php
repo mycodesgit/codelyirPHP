@@ -32,6 +32,20 @@ function viewUser() {
     return $users;
 }
 
+// Function to ViewEdit
+function viewUserEdit() {
+    global $DB;
+
+    $token = $_GET['token'];
+    $stmt = $DB->prepare("SELECT * FROM users WHERE token = ?");
+    $stmt->bind_param("s", $token);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $data = $result->fetch_object();
+
+    return $data;
+}
+
 // Function to add 
 function createUser($fname, $mname, $lname, $username, $password, $emp_gender, $usertype)
 {
