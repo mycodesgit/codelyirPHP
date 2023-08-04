@@ -103,6 +103,31 @@
 
 <body class="hold-transition layout-top-nav dark-mode">
     <div class="wrapper">
+        <nav class="main-header navbar navbar-expand-md navbar-dark navbar-dark text-light border-bottom-0" style="background-color: #343a40;">
+            <div class="container-fluid">
+                <a href="#" class="navbar-brand">
+                    <span class="brand-text font-light text-light dot-title"></span>
+                </a>
+                <!-- <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button> -->
+                <div class="collapse navbar-collapse order-3" id="navbarCollapse">
+                    <ul class="navbar-nav">
+                        <!-- <li class="nav-item">
+                            <a href="index3.html" class="nav-link">Home</a>
+                        </li> -->
+                    </ul>
+                </div>
+                <!-- Right navbar links -->
+                <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+                            <i class="fas fa-toggle-on"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
         <div class="content-wrapper">
             <div class="content-header">
                 <div class="container-fluid">
