@@ -11,9 +11,9 @@
 
 	require 'config.php';	
 	require 'init.php';
-	require 'authentication.php';	
 	require 'config/functions.php';
 	require 'config/custom_functions.php';	
+	require 'web/authentication.php';	
 	require 'config/actions.php';			
 	require 'config/page.php';
 
