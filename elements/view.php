@@ -1,70 +1,176 @@
 <!DOCTYPE html>
-<html lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
 
-        <title>Lorem-php-master-framework</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lorem PHP Framework |  Documentation</title>
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="assets/css/fontawesome-free/css/all.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="assets/css/loremcss.css">
+    <!-- Logo  -->
+    <link rel="shortcut icon" type="" href="assets/img/logo/lorem-logo.png">
 
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <!-- <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"> -->
+    <style>
+        .nav-link{
+            color: #fff !important;
+        }
+        .nav-link.active{
+            background-color: #00bf63 !important ;
+            color: #000 !important;
+        }
 
-        <!-- Styles -->
-        <link rel="stylesheet" type="text/css" href="assets/view.css">
+        code {
+            position: relative;
+            display: block;
+            color: #ffffff !important;
+            padding-top: 5px;
+            padding-left: 20px; /* Add padding for the macOS-like window controls and copy icon */
+            margin-top: 20px;
+            font-family: monospace, sans-serif !important;
+            background-color: #252a37 !important;
+            border-radius: 5px;
+            height: 31px;
+        }
 
-        <style>
-            body {
-                font-family: 'Nunito', sans-serif;
+        /* Add macOS-like window controls */
+        .dot-title::before {
+            content: "";
+            position: absolute;
+            top: 23px;
+            left: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #fc615d; /* Red */
+        }
+
+        .dot-title::before{
+            box-shadow: 15px 0 #fdbc40, 30px 0 #34c749;
+            margin-left: 10px;
+        }
+
+        /* Add macOS-like window controls */
+        .dot::before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #fc615d; /* Red */
+        }
+
+        /* Add the copy icon */
+        code::after {
+            content: attr(data-icon);
+            /* Get the data-icon attribute value for the Font Awesome icon */
+            font-family: "Font Awesome 5 Free";
+            position: absolute;
+            top: 2px;
+            right: 5px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .dot::before{
+            box-shadow: 15px 0 #fdbc40, 30px 0 #34c749;
+            margin-left: 10px;
+        }
+        @media (max-width: 768px) {
+            code {
+                font-size: 14px;
+                height: auto;
+                padding: 10px;
             }
-            .body-BG {
-                background-color: #1a202c;
-                background-color: rgba(26, 32, 44, var(--bg-opacity))
+            code::after {
+                top: 50%;
+                transform: translateY(-50%);
             }
-            .content-docu{
-                background-color: #2d3748;
-                color: #fff !important;
-            }
-        </style>
-    </head>
-    <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0 body-BG">
-            
+        }
+        .title-doc {
+            color: #fc615d;
+        }
+        .ins-doc {
+            color: #34c749;
+        }
 
-            <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-                    <img src="assets/img/logo/lorem-logo.png" alt="" class=""width="30%" height="10%">
-                </div>
+    </style>
+</head>
 
-                <div class="mt-8 bg-white dark:bg-white-800 overflow-hidden shadow sm:rounded-lg content-docu">
-                    <div class="grid grid-cols-4 md:grid-cols-2">
-                        <div class="p-6 flex-item">
-                            <div class="flex items-center text-white">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold">
-                                    <a href="https://github.com/loretog/lorem-php" target="_blank" class="underline text-white-900 text-white">Documentation on GitHub</a>
-                                </div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-white-600 dark:text-white-400 text-sm">
-                                    A Lorem PHP Master Framework is a tool for beginners or students. A free and open-source PHP web framework developed by Loreto Gabawa with the objective of allowing the development of online applications that correspond to the element-page-action component architectural pattern of coding and include authentication and sign-in/sign-out sessions.
-                                </div>
-                            </div>
+<body class="hold-transition layout-top-nav dark-mode">
+    <div class="wrapper">
+        <div class="content-wrapper">
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0">
+                                
+                            </h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item active">v1</li>
+                            </ol>
                         </div>
                     </div>
                 </div>
-
-                <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
-                    <div class="text-center text-sm text-gray-500 sm:text-left">
-                        <div class="flex items-center"></div>
-                    </div>
-
-                    <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
-                        © Lorem PHP
+            </div>
+            <div class="content">
+                <div class="container">
+                    <div class="row">
+                        <h1 style="margin-top: 90px; margin-left: 30px;">
+                            <img src="assets/img/logo/lorem-logo.png" alt="AdminLTE Logo" class="brand-image img-rectangle" width="30%">
+                        </h1>
+                        <div class="col-lg-12 pr-5 pl-5">
+                            <div class="card" style="background-color: #2d3748">
+                                <div class="card-header">
+                                    <h5 class="card-title m-0 dot"></h5>
+                                </div>
+                                <div class="card-body" id="scrollme">
+                                    <h3 class="title-doc">Introducing Lorem PHP Master Framework</h3>
+                                    <br>
+                                    
+                                    <p style="text-align: justify;">
+                                        The Lorem PHP Master Framework is an open-source PHP web framework designed by Loreto Gabawa. It aims to assist beginners and students in developing online applications using the element-page-action component architectural pattern. The framework also offers built-in authentication and sign-in/sign-out sessions for added convenience in application development.
+                                    </p>
+                                </div>
+                            </div>
+                            <h6 class="pl-3">
+                                <i class="fas fa-book-open"></i>
+                                <a href="" class="text-white" style="text-decoration: underline;">
+                                    Documentation
+                                </a>
+                            </h6>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </body>
+        
+        <!-- Main Footer -->
+        <footer class="main-footer border-top-0">
+            <!-- To the right -->
+            <div class="float-right d-none d-sm-inline">
+                Lorem
+            </div>
+            <!-- Default to the left -->
+            <strong>Tool for a beginner.</strong> All rights reserved.
+        </footer>
+    </div>
+    <!-- ./wrapper -->
+
+    <!-- REQUIRED SCRIPTS -->
+    <!-- jQuery -->
+    <script src="assets/css/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="assets/css/bootstrap.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="assets/css/loremcss.min.js"></script>
+</body>
+
 </html>
