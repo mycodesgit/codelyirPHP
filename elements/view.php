@@ -122,7 +122,7 @@
                 <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
                     <li class="nav-item">
                         <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-                            <i class="fas fa-toggle-on"></i>
+                            <i class="fa-brands fa-php"></i>
                         </a>
                     </li>
                 </ul>
@@ -153,9 +153,6 @@
                         </h1>
                         <div class="col-lg-12 pr-5 pl-5">
                             <div class="card" style="background-color: #2d3748">
-                                <div class="card-header">
-                                    <h5 class="card-title m-0 dot"></h5>
-                                </div>
                                 <div class="card-body" id="scrollme">
                                     <h3 class="title-doc">Introducing Lorem PHP Master Framework</h3>
                                     <br>
@@ -178,7 +175,7 @@
         </div>
         
         <!-- Main Footer -->
-        <footer class="main-footer border-top-0">
+        <footer class="main-footer">
             <!-- To the right -->
             <div class="float-right d-none d-sm-inline">
                 Lorem
