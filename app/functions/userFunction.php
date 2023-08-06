@@ -51,7 +51,7 @@ function createUser($fname, $mname, $lname, $username, $password, $emp_gender, $
 {
     global $DB;
 
-    $token = bin2hex(random_bytes(16));
+    $token = token_hash();
 
     // Check if the username or password already exists
     $sql_check = "SELECT COUNT(*) AS count FROM users WHERE username = ? OR password = ?";
