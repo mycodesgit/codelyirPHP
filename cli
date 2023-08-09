@@ -159,11 +159,11 @@ $app->register('generate:action')
 |
 */
 
-if (!defined('ACCESS')) {
-    die('DIRECT ACCESS NOT ALLOWED');
-}
 
 if (\$_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (!defined('ACCESS')) {
+        die('DIRECT ACCESS NOT ALLOWED');
+    }
 
     validate_csrf_token();
 
@@ -184,6 +184,26 @@ if (\$_SERVER['REQUEST_METHOD'] === 'POST') {
 
         delete$actionName();
         // Redirect or perform additional actions as needed
+    }
+}
+
+if (\$_SERVER['REQUEST_METHOD'] === 'GET') {
+    include ("../../init.php"); 
+
+    if (isset(\$_GET['btnDelete'])) {
+        \$id = \$_GET['id'];
+
+        \$sql_delete = "DELETE FROM table_name WHERE id=?";
+        \$stmt_delete = \$DB->prepare(\$sql_delete);
+        \$stmt_delete->bind_param("i", \$id);
+
+        if (\$stmt_delete->execute()) {
+            set_message("<i class='fa fa-check'></i> Deleted Successfully", 'success');
+            return true;
+        } else {
+            set_message("<i class='fa fa-times'></i> Failed to Delete" . \$DB->error, 'danger');
+            return false;
+        }
     }
 }
 

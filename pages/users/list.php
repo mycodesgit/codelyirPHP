@@ -31,7 +31,7 @@
                     <a href="./edit-user&token=<?php echo $user->token ?>" class="#" title="Edit">
                         <i class="fas fa-info-circle"></i>
                     </a>
-                    <a href="#" class="#" title="Delete">
+                    <a id="<?php echo $data->id?>" onclick="deleteItem(this.id)" class="#" title="Delete">
                         <i class="fas fa-trash"></i>
                     </a>
                 </td>
@@ -48,4 +48,39 @@
     setTimeout(function () {
         $( "#alert" ).delay(2500).fadeOut(5000);
     }, );
+</script>
+
+<script>
+    function deleteItem(id) {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d60",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }). then((result)=> {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: "GET",
+                        url: "../app/actions/nameAction.php",
+                        data: { id:id, btnDelete:true},
+                        success: function (response) {
+                            Swal.fire(
+                                'Delete!',
+                                'You file has been deleted.',
+                                'success'
+                            ).then(() => {
+                                var row = $("#view-" + id);
+                                row.fadeOut(1000, function() {
+                                    row.remove();
+                                });
+                            });
+                        }
+                    });
+                }
+            }
+        );
+    }
 </script>
